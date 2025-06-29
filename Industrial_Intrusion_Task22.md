@@ -12,25 +12,25 @@ An intruder has breached the internal OT network and systematically probed indus
 
 Analyse the provided PCAP and uncover what data the attacker retrieved during their register scans.
 
-![Task description](images/industrial_intrusion_task22_1.png)
+![Task description](images/industrial_intrusion_task22_1.PNG)
 
 🧠 Approach
 🔍 Step 1: Initial Recon
-The challenge provided a .pcapng capture file. I opened it using Wireshark.
+The challenge provided a .pcaPNG capture file. I opened it using Wireshark.
 
 🧪 Step 2: Investigation
 I began by searching for the flag using Ctrl+F with "THM{" in packet bytes, but it didn’t return any results. This hinted that the flag might be split across multiple TCP packets or encoded in some way.
 
-![Wireshark search failed](images/industrial_intrusion_task22_2.png)
+![Wireshark search failed](images/industrial_intrusion_task22_2.PNG)
 
 🔁 Step 3: Follow TCP Stream
 Explain how you followed the stream:
 
 I filtered traffic using tcp port 502 and selected a packet that contained string "TH". 
-![Filter to TCP port 502, found partial string "TH"](images/industrial_intrusion_task22_3.png)
+![Filter to TCP port 502, found partial string "TH"](images/industrial_intrusion_task22_3.PNG)
 
 Then I right-clicked and chose Follow → TCP Stream, which showed a reassembled chat or file transfer. The flag is visible in fragmented form. Copy-paste into text editor and cleanup to get the final flag.
-![Follow TCP stream to get evidence of flag](images/industrial_intrusion_task22_4.png)
+![Follow TCP stream to get evidence of flag](images/industrial_intrusion_task22_4.PNG)
 
 🏁 Flag
 THM{1nDu5tr14L_r3g1st3rs}
